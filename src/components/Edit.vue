@@ -77,8 +77,8 @@
       },
       methods:{
         checkEdit(){
-          this.checked = !this.checked
 
+          this.checked = this.checked !== true;
         },
         goBack(){
           localStorage.removeItem('now_'+this.$route.params.id);
@@ -114,7 +114,7 @@
 
 
           localStorage.setItem('last_' + this.$route.params.id, this.todo.title);
-          localStorage.setItem('last_checked_'+this.$route.params.id,todos[this.$route.params.id].checked);
+          localStorage.setItem('last_checked_'+this.$route.params.id,this.checked);
 
           this.returnButton = 1;
           this.checked = localStorage.getItem('now_checked_' + this.$route.params.id) === 'true';
